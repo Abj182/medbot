@@ -802,14 +802,9 @@ def clear_history():
         return jsonify({'error': 'Failed to clear history'}), 500
 
 # ============================================
-# Run App (keep at end of file)
-# ============================================
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
-
-# ============================================
 # Online Search Route
 # ============================================
+
 @app.route('/search_online', methods=['POST'])
 def search_online():
     """Search online medical information using Perplexity API"""
@@ -853,3 +848,8 @@ def search_online():
         return jsonify({
             "error": f"Search failed: {str(e)}"
         }), 500
+# ============================================
+# Run App (keep at end of file)
+# ============================================
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=5000)
