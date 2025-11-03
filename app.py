@@ -852,5 +852,5 @@ def search_online():
 # Run App (keep at end of file)
 # ============================================
 if __name__ == "__main__":
-    app.rin(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0',debug=True)
 
