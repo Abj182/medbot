@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">💊 Medical Assistant</h2>
+                <button class="toggle-sidebar-btn" id="toggle-sidebar" title="Toggle Sidebar">
+                    <span class="icon">☰</span>
+                </button>
+            </div>
+            
+            <button class="new-chat-btn" id="new-chat-btn">
+                <span class="icon">✨</span>
+                <span>New Chat</span>
+            </button>
+            
+            <div class="chat-filter-tabs">
+                <button class="sidebar-tab active" data-type="all">All Chats</button>
+                <button class="sidebar-tab" data-type="textbook">📚 Textbook</button>
+                <button class="sidebar-tab" data-type="online">🌐 Online</button>
+            </div>
+            
+            <div class="chat-history">
+                <div class="chat-list" id="chat-list">
+                    <div class="chat-list-loading">Loading chats...</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <button class="clear-chats-btn" id="clearChatsBtn">
+                    <span class="icon">🗑️</span>
+                    <span>Clear Chats</span>
+                </button>
+                <button class="theme-toggle-btn" id="themeToggle">
+                    <span class="icon" id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="chat-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="icon">☰</span>
+                </button>
+                <h1>Medical Assistant</h1>
+                <div class="header-tabs">
+                    <button class="header-tab active" data-tab="textbook">
+                        <span>📚 Textbook</span>
+                    </button>
+                    <button class="header-tab" data-tab="online">
+                        <span>🌐 Online</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Textbook Chat Container -->
+            <div class="chat-container active" id="textbook-chat">
+                <div class="welcome-screen">
+                    <div class="welcome-icon">🏥</div>
+                    <h2>Welcome to Medical Assistant</h2>
+                    <p>I can help you understand symptoms and provide information from medical textbooks.</p>
+                    <div class="welcome-suggestions">
+                        <button class="suggestion-btn" onclick="fillInput('I have a fever and headache')">
+                            🤒 I have a fever and headache
+                        </button>
+                        <button class="suggestion-btn" onclick="fillInput('What are the symptoms of diabetes?')">
+                            🩺 Symptoms of diabetes
+                        </button>
+                        <button class="suggestion-btn" onclick="fillInput('How to treat common cold?')">
+                            💊 Treating common cold
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Online Chat Container -->
+            <div class="chat-container" id="online-chat">
+                <div class="welcome-screen">
+                    <div class="welcome-icon">🌐</div>
+                    <h2>Search Online Medical Sources</h2>
+                    <p>Search trusted sources like WHO, CDC, NHS, and Mayo Clinic for health information.</p>
+                    <div class="welcome-suggestions">
+                        <button class="suggestion-btn" onclick="fillInput('Latest COVID-19 guidelines')">
+                            🦠 Latest COVID-19 guidelines
+                        </button>
+                        <button class="suggestion-btn" onclick="fillInput('Heart disease prevention')">
+                            ❤️ Heart disease prevention
+                        </button>
+                        <button class="suggestion-btn" onclick="fillInput('Vaccination recommendations')">
+                            💉 Vaccination info
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <button class="voice-btn" id="voice-btn" title="Voice input">
+                        <span class="icon">🎤</span>
+                    </button>
+                    <input 
+                        type="text" 
+                        id="symptoms" 
+                        placeholder="Ask me anything about health..."
+                        autocomplete="off"
+                    >
+                    <button class="send-btn" id="send">
+                        <span class="icon">➤</span>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    Medical information is for educational purposes only. Always consult a healthcare professional.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="clearChatsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-icon">⚠️</span>
+                <h3>Clear All Chats?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete all your chat history? This action cannot be undone.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-cancel" id="cancelClearBtn">Cancel</button>
+                <button class="modal-btn modal-btn-confirm" id="confirmClearBtn">Clear All</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
