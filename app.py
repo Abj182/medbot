@@ -9,9 +9,7 @@ def home():
     return "Flask is alive on Railway!"
 
 
-# Lazy import (do this inside your API route)
-@app.route("/analyze")
-def analyze():
-    from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-    return "Model loaded!"
+# Lazy import (do this inside your API route
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
