@@ -18,7 +18,7 @@ from functools import wraps
 import bcrypt
 
 app = Flask(__name__)
-app.secret_key = os.getenv("app.secret_key")  # Change this!
+app.secret_key = os.getenv("SECRET_KEY")  # Change this!
 
 # ============================================
 # CONFIGURATION
